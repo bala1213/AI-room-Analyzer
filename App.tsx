@@ -18,8 +18,8 @@ const App: React.FC = () => {
       className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm font-medium
         ${
           activeView === view
-            ? 'bg-blue-600 text-white shadow-md'
-            : 'text-gray-400 hover:bg-gray-700 hover:text-white'
+            ? 'bg-teal-600 text-white shadow-md'
+            : 'text-slate-300 hover:bg-slate-700 hover:text-white'
         }`}
     >
       {icon}
@@ -28,16 +28,16 @@ const App: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col font-sans">
-      <header className="bg-gray-800/50 backdrop-blur-sm border-b border-gray-700 sticky top-0 z-10">
+    <div className="min-h-screen bg-slate-900 text-slate-100 flex flex-col font-sans">
+      <header className="bg-slate-800/50 backdrop-blur-sm border-b border-slate-700 sticky top-0 z-10">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <SparklesIcon className="h-8 w-8 text-blue-400" />
-            <h1 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+            <SparklesIcon className="h-8 w-8 text-teal-400" />
+            <h1 className="text-lg sm:text-xl font-bold text-slate-100 tracking-tight">
               AI Home Organizer
             </h1>
           </div>
-          <nav className="flex items-center gap-1 sm:gap-2 p-1 bg-gray-900/50 rounded-xl">
+          <nav className="flex items-center gap-1 sm:gap-2 p-1 bg-slate-900/50 rounded-xl">
             <NavButton
               view="analyzer"
               label="Room Analyzer"
@@ -57,7 +57,7 @@ const App: React.FC = () => {
         {activeView === 'chat' && <Chatbot />}
       </main>
       
-      <footer className="text-center p-4 text-xs text-gray-500">
+      <footer className="text-center p-4 text-xs text-slate-500">
         Powered by Gemini
       </footer>
     </div>

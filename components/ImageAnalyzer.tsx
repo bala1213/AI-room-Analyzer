@@ -11,13 +11,13 @@ const MarkdownRenderer: React.FC<{ content: string }> = ({ content }) => {
             .split('\n')
             .map((line, index) => {
                 if (line.startsWith('### ')) {
-                    return <h3 key={index} className="text-lg font-semibold mt-4 mb-2 text-blue-300">{line.substring(4)}</h3>;
+                    return <h3 key={index} className="text-lg font-semibold mt-4 mb-2 text-teal-300">{line.substring(4)}</h3>;
                 }
                 if (line.startsWith('## ')) {
-                    return <h2 key={index} className="text-xl font-bold mt-6 mb-3 text-blue-400">{line.substring(3)}</h2>;
+                    return <h2 key={index} className="text-xl font-bold mt-6 mb-3 text-teal-400">{line.substring(3)}</h2>;
                 }
                 if (line.startsWith('# ')) {
-                    return <h1 key={index} className="text-2xl font-bold mt-8 mb-4 text-blue-400">{line.substring(2)}</h1>;
+                    return <h1 key={index} className="text-2xl font-bold mt-8 mb-4 text-teal-400">{line.substring(2)}</h1>;
                 }
                 if (line.startsWith('* ')) {
                     return <li key={index} className="ml-5 list-disc">{line.substring(2)}</li>;
@@ -29,7 +29,7 @@ const MarkdownRenderer: React.FC<{ content: string }> = ({ content }) => {
             });
     };
 
-    return <div className="prose prose-invert max-w-none text-gray-300">{renderContent()}</div>;
+    return <div className="prose prose-invert max-w-none text-slate-300">{renderContent()}</div>;
 };
 
 const ImageAnalyzer: React.FC = () => {
@@ -77,13 +77,13 @@ const ImageAnalyzer: React.FC = () => {
     <div className="w-full">
       <label
         htmlFor="file-upload"
-        className="relative block w-full border-2 border-dashed border-gray-600 rounded-lg p-12 text-center cursor-pointer hover:border-blue-500 transition-colors bg-gray-800/50"
+        className="relative block w-full border-2 border-dashed border-slate-600 rounded-lg p-12 text-center cursor-pointer hover:border-teal-500 transition-colors bg-slate-800/50"
       >
-        <UploadIcon className="mx-auto h-12 w-12 text-gray-500" />
-        <span className="mt-2 block text-sm font-semibold text-gray-300">
+        <UploadIcon className="mx-auto h-12 w-12 text-slate-500" />
+        <span className="mt-2 block text-sm font-semibold text-slate-300">
           Upload a photo of your room
         </span>
-        <span className="mt-1 block text-xs text-gray-500">
+        <span className="mt-1 block text-xs text-slate-500">
           PNG, JPG, GIF
         </span>
         <input id="file-upload" name="file-upload" type="file" className="sr-only" onChange={handleFileChange} accept="image/*" />
@@ -93,21 +93,21 @@ const ImageAnalyzer: React.FC = () => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-        <div className="flex flex-col gap-6 p-6 bg-gray-800/50 rounded-xl shadow-lg border border-gray-700 h-full">
-            <h2 className="text-2xl font-bold text-white">1. Upload Your Photo</h2>
-            <p className="text-gray-400 text-sm">Choose a clear photo of the room you'd like to organize. The better the quality, the better the suggestions!</p>
+        <div className="flex flex-col gap-6 p-6 bg-slate-800/50 rounded-xl shadow-lg border border-slate-700 h-full">
+            <h2 className="text-2xl font-bold text-slate-100">1. Upload Your Photo</h2>
+            <p className="text-slate-400 text-sm">Choose a clear photo of the room you'd like to organize. The better the quality, the better the suggestions!</p>
             
             {!previewUrl ? <Uploader /> : (
                 <div className="mt-4 flex-grow flex flex-col">
                     <img src={previewUrl} alt="Room preview" className="rounded-lg max-h-96 w-full object-contain" />
-                    <button onClick={() => { setPreviewUrl(null); setSelectedFile(null); }} className="w-full mt-4 text-sm text-center text-gray-400 hover:text-white">Choose a different photo</button>
+                    <button onClick={() => { setPreviewUrl(null); setSelectedFile(null); }} className="w-full mt-4 text-sm text-center text-slate-400 hover:text-white">Choose a different photo</button>
                 </div>
             )}
             
             <button
                 onClick={handleAnalyze}
                 disabled={!selectedFile || isLoading}
-                className="flex items-center justify-center gap-2 w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition-all hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed disabled:opacity-50 mt-auto"
+                className="flex items-center justify-center gap-2 w-full bg-teal-600 text-white font-bold py-3 px-4 rounded-lg transition-all hover:bg-teal-700 disabled:bg-slate-600 disabled:cursor-not-allowed disabled:opacity-50 mt-auto"
             >
                 {isLoading ? (
                     <>
@@ -123,11 +123,11 @@ const ImageAnalyzer: React.FC = () => {
             </button>
         </div>
 
-        <div className="flex flex-col gap-4 p-6 bg-gray-800/50 rounded-xl shadow-lg border border-gray-700 min-h-[500px] lg:min-h-full">
-            <h2 className="text-2xl font-bold text-white">2. Your AI-Powered Plan</h2>
+        <div className="flex flex-col gap-4 p-6 bg-slate-800/50 rounded-xl shadow-lg border border-slate-700 min-h-[500px] lg:min-h-full">
+            <h2 className="text-2xl font-bold text-slate-100">2. Your AI-Powered Plan</h2>
             <div className="flex-grow p-1">
                 {isLoading && (
-                    <div className="flex flex-col items-center justify-center h-full text-center text-gray-400">
+                    <div className="flex flex-col items-center justify-center h-full text-center text-slate-400">
                         <LoadingSpinner />
                         <p className="mt-4">Our AI is tidying up some ideas for you...</p>
                         <p className="text-sm">This may take a moment.</p>
@@ -135,12 +135,12 @@ const ImageAnalyzer: React.FC = () => {
                 )}
                 {error && <div className="text-red-400 bg-red-900/50 p-4 rounded-lg">{error}</div>}
                 {analysisResult && (
-                    <div className="bg-gray-900 rounded-lg max-h-[70vh] overflow-y-auto p-4 custom-scrollbar">
+                    <div className="bg-slate-900 rounded-lg max-h-[70vh] overflow-y-auto p-4 custom-scrollbar">
                         <MarkdownRenderer content={analysisResult} />
                     </div>
                 )}
                 {!isLoading && !analysisResult && !error && (
-                     <div className="flex flex-col items-center justify-center h-full text-center text-gray-500 border-2 border-dashed border-gray-700 rounded-lg">
+                     <div className="flex flex-col items-center justify-center h-full text-center text-slate-500 border-2 border-dashed border-slate-700 rounded-lg">
                         <p>Your decluttering suggestions will appear here.</p>
                     </div>
                 )}

@@ -54,7 +54,7 @@ const Chatbot: React.FC = () => {
   }, [currentMessage, isLoading, chat]);
 
   return (
-    <div className="flex flex-col h-[calc(100vh-160px)] max-w-3xl mx-auto bg-gray-800/50 border border-gray-700 rounded-xl shadow-2xl overflow-hidden">
+    <div className="flex flex-col h-[calc(100vh-160px)] max-w-3xl mx-auto bg-slate-800/50 border border-slate-700 rounded-xl shadow-2xl overflow-hidden">
       <div className="flex-grow p-6 overflow-y-auto">
         <div className="flex flex-col gap-4">
           {messages.map((msg, index) => (
@@ -64,13 +64,13 @@ const Chatbot: React.FC = () => {
                 msg.sender === Sender.User ? 'justify-end' : 'justify-start'
               }`}
             >
-              {msg.sender === Sender.Bot && <SparklesIcon className="h-6 w-6 text-blue-400 mb-1 flex-shrink-0" />}
+              {msg.sender === Sender.Bot && <SparklesIcon className="h-6 w-6 text-teal-400 mb-1 flex-shrink-0" />}
               <div
                 className={`max-w-md lg:max-w-lg px-4 py-3 rounded-2xl ${
                   msg.sender === Sender.User
-                    ? 'bg-blue-600 text-white rounded-br-none'
+                    ? 'bg-teal-600 text-white rounded-br-none'
                     : msg.sender === Sender.Bot
-                    ? 'bg-gray-700 text-gray-200 rounded-bl-none'
+                    ? 'bg-slate-700 text-slate-200 rounded-bl-none'
                     : 'bg-red-900/80 text-red-200 rounded-bl-none border border-red-700'
                 }`}
               >
@@ -80,8 +80,8 @@ const Chatbot: React.FC = () => {
           ))}
           {isLoading && (
              <div className="flex items-end gap-2 justify-start">
-              <SparklesIcon className="h-6 w-6 text-blue-400 mb-1" />
-              <div className="max-w-md lg:max-w-lg px-4 py-3 rounded-2xl bg-gray-700 text-gray-200 rounded-bl-none">
+              <SparklesIcon className="h-6 w-6 text-teal-400 mb-1" />
+              <div className="max-w-md lg:max-w-lg px-4 py-3 rounded-2xl bg-slate-700 text-slate-200 rounded-bl-none">
                 <LoadingSpinner />
               </div>
              </div>
@@ -89,20 +89,20 @@ const Chatbot: React.FC = () => {
           <div ref={messagesEndRef} />
         </div>
       </div>
-      <div className="p-4 bg-gray-800 border-t border-gray-700">
+      <div className="p-4 bg-slate-800 border-t border-slate-700">
         <form onSubmit={handleSendMessage} className="flex items-center gap-2">
           <input
             type="text"
             value={currentMessage}
             onChange={(e) => setCurrentMessage(e.target.value)}
             placeholder="Ask for organization tips..."
-            className="flex-grow bg-gray-900 border border-gray-600 rounded-full py-2.5 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            className="flex-grow bg-slate-900 border border-slate-600 rounded-full py-2.5 px-4 text-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
             disabled={isLoading}
           />
           <button
             type="submit"
             disabled={!currentMessage.trim() || isLoading}
-            className="bg-blue-600 text-white rounded-full p-2.5 transition-colors hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed"
+            className="bg-teal-600 text-white rounded-full p-2.5 transition-colors hover:bg-teal-700 disabled:bg-slate-600 disabled:cursor-not-allowed"
             aria-label="Send message"
           >
             <SendIcon className="h-5 w-5" />
